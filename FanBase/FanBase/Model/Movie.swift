@@ -9,9 +9,13 @@ struct Movie {
 extension Movie {
     static func fixture(
         title: String = "The Movie",
-        staff: [Actor] = [.fixture(), .fixture(), .fixture(), .fixture(), .fixture()]
+        staff: [Actor] = [.daveedDiggs, .alisonWright, .jenniferConnelly, .mickeySumner, .robertoUrbina],
+        shuffled: Bool = true
     ) -> Movie {
-        Movie(title: title, staff: staff)
+        Movie(
+            title: title,
+            staff: shuffled ? staff.shuffled() : staff
+        )
     }
 }
 #endif
